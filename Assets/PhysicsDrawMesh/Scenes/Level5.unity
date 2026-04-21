@@ -356,7 +356,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cc0c60d8a31ff14db5a91671daf65d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DrawMesh.InkSystem
-  maxInk: 150
+  maxInk: 170
   useInk: 1
   debugInk: 0
 --- !u!4 &172734923
@@ -1921,7 +1921,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6974693256952741992, guid: a32eeedff45a87a4a87fb5ba895e3f96, type: 3}
       propertyPath: dropForce
-      value: 10
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 7945151069541291863, guid: a32eeedff45a87a4a87fb5ba895e3f96, type: 3}
       propertyPath: m_Name
