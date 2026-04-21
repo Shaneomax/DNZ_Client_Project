@@ -15,6 +15,7 @@ namespace DrawMesh
         private Transform drawMeshTemplate;
         [SerializeField()]
         private DrawSettings drawSettings;
+        [SerializeField] private InkSystem inkSystem;//extra
 
         public event Action OnStartDraw;
         public event Action OnDrawing;
@@ -184,8 +185,13 @@ namespace DrawMesh
         private void AddNewToDrawLine(Vector2 targetPos, float distanceIncrase)
         {
             // Determine whether the maximum length is exceeded
-            if (drawSettings.lengthLimit && currentLength + distanceIncrase > drawSettings.maxLength)
+            //if (drawSettings.lengthLimit && currentLength + distanceIncrase > drawSettings.maxLength)  ----Testing purposes
+            //{
+            //    return;
+            //}
+            if (!inkSystem.TryConsume(distanceIncrase))
             {
+                EndDraw(); // STOP drawing like real pen
                 return;
             }
 

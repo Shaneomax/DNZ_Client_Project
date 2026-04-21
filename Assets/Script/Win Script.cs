@@ -1,29 +1,40 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI; // For regular Unity UI components (like Buttons, Images)
+using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
 
 public class WinScript : MonoBehaviour
 {
-
     public TextMeshProUGUI winText;
-   
+
+    [Header("Speed Settings")]
+    [Tooltip("How much to slow the ball down. 0 is a dead stop, 0.1 is 10% speed.")]
+    [Range(0f, 1f)]
+    public float slowDownFactor = 0.1f;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // Check if the object the player collided with has the "PickUp" tag.
+        // Check if the object the player collided with has the "Pickup" tag.
         if (other.gameObject.CompareTag("Pickup"))
         {
-            // Deactivate the collided object (making it disappear).
-            //other.gameObject.SetActive(false);
+            // 1. Slow down the ball
+            Rigidbody2D rb = GetComponent<Rigidbody2D>();
+            if (rb != null)
+            {
+                // Multiply current speed and rotation by the slow down factor
+                rb.linearVelocity = rb.linearVelocity * slowDownFactor;
+                rb.angularVelocity = rb.angularVelocity * slowDownFactor;
+            }
 
+            // 2. Display Win Text
             if (winText != null)
             {
                 winText.text = "Congratulations You Win";
             }
 
+            // 3. Start the timer to load the next level
             StartCoroutine(LoadLevelAfterDelay());
         }
     }
@@ -32,18 +43,17 @@ public class WinScript : MonoBehaviour
     {
         yield return new WaitForSeconds(5f);
 
-        // 1. Get the index number of the current scene
+        // Get the index number of the current scene
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
 
-        // 2. Calculate the next scene index
+        // Calculate the next scene index
         int nextSceneIndex = currentSceneIndex + 1;
 
-        // 3. Check if the next scene actually exists in our build settings
+        // Check if the next scene actually exists in our build settings
         // (This prevents an error from crashing the game when you finish Level 5)
         if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
         {
             SceneManager.LoadScene(nextSceneIndex);
         }
-        
     }
 }

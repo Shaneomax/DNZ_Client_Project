@@ -1,0 +1,93 @@
+using UnityEngine;
+
+namespace DrawMesh
+{
+    public class InkSystem : MonoBehaviour
+    {
+        public static InkSystem Instance { get; private set; }
+
+        [Header("Ink Settings")]
+        public float maxInk = 10f;
+        public bool useInk = true;
+
+        [Range(0f, 50f)]
+        [SerializeField] private float debugInk;
+
+        public float CurrentInk { get; private set; }
+
+        public float InkPercent
+        {
+            get
+            {
+                if (maxInk <= 0) return 0;
+                return CurrentInk / maxInk;
+            }
+        }
+
+        private void Awake()
+        {
+            // 🔴 Singleton setup
+            if (Instance != null && Instance != this)
+            {
+                Destroy(gameObject);
+                return;
+            }
+
+            Instance = this;
+            //DontDestroyOnLoad(gameObject);
+
+            ResetInk();
+        }
+
+        private void Update()
+        {
+            debugInk = CurrentInk;
+        }
+
+        /// <summary>
+        /// Try to consume ink when drawing
+        /// </summary>
+        public bool TryUseInk(float amount)
+        {
+            if (!useInk) return true;
+
+            if (CurrentInk >= maxInk)
+                return false;
+
+            float allowed = Mathf.Min(amount, maxInk - CurrentInk);
+            CurrentInk += allowed;
+
+            return allowed > 0;
+        }
+
+        /// <summary>
+        /// Hard check (pen stop style)
+        /// </summary>
+        public bool TryConsume(float amount)
+        {
+            if (!useInk) return true;
+
+            if (CurrentInk + amount > maxInk)
+                return false;
+
+            CurrentInk += amount;
+            return true;
+        }
+
+        public bool CanDraw()
+        {
+            if (!useInk) return true;
+            return CurrentInk < maxInk;
+        }
+
+        public void ResetInk()
+        {
+            CurrentInk = 0f;
+        }
+
+        public void AddInk(float amount)
+        {
+            CurrentInk = Mathf.Clamp(CurrentInk - amount, 0, maxInk);
+        }
+    }
+}
