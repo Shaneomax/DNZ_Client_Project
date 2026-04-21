@@ -26,3 +26,31 @@
 //        rb.simulated = true;
 //    }
 //}
+
+using UnityEngine;
+
+public class BallDrop : MonoBehaviour
+{
+    private Rigidbody2D rb;
+
+    [Header("Drop Settings")]
+    public float dropForce = 5f;
+
+    private bool hasDropped = false; 
+
+    void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        rb.simulated = false;
+    }
+
+    public void DropBall()
+    {
+        if (hasDropped) return;
+
+        hasDropped = true;
+
+        rb.simulated = true;
+        rb.AddForce(Vector2.down * dropForce, ForceMode2D.Impulse);
+    }
+}
