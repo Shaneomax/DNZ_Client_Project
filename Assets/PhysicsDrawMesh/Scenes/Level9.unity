@@ -2551,7 +2551,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1366093867
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2843,7 +2843,6 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
-  rb: {fileID: 0}
 --- !u!50 &1388279301
 Rigidbody2D:
   serializedVersion: 5
@@ -3801,9 +3800,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Level 7
-
-'
+  m_Text: Level 8
 --- !u!222 &1988326176
 CanvasRenderer:
   m_ObjectHideFlags: 0
