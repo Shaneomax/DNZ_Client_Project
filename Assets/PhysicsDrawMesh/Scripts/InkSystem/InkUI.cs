@@ -6,7 +6,7 @@ public class InkUI : MonoBehaviour
 {
     [Header("UI References")]
     [Tooltip("Drag your UI Slider here")]
-    public Slider inkSlider;
+    [SerializeField] private Slider inkSlider;
 
     private void Start()
     {

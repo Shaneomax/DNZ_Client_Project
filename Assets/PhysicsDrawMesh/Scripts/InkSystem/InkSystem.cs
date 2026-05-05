@@ -7,8 +7,8 @@ namespace DrawMesh
         public static InkSystem Instance { get; private set; }
 
         [Header("Ink Settings")]
-        public float maxInk = 10f;
-        public bool useInk = true;
+        [SerializeField] private float maxInk = 10f;
+        [SerializeField] private bool useInk = true;
 
         [Range(0f, 50f)]
         [SerializeField] private float debugInk;
@@ -26,7 +26,6 @@ namespace DrawMesh
 
         private void Awake()
         {
-            // 🔴 Singleton setup
             if (Instance != null && Instance != this)
             {
                 Destroy(gameObject);
@@ -34,8 +33,6 @@ namespace DrawMesh
             }
 
             Instance = this;
-            //DontDestroyOnLoad(gameObject);
-
             ResetInk();
         }
 

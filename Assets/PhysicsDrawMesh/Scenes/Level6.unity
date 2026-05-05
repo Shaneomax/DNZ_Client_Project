@@ -2699,12 +2699,12 @@ GameObject:
   - component: {fileID: 1388279301}
   - component: {fileID: 1388279300}
   m_Layer: 0
-  m_Name: Obstacle
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!61 &1388279297
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2837,7 +2837,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 083ad7098a033c342ba48b2a3af21135, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerJump
-  jumpForce: 10
+  jumpForce: 14
+  alwaysJump: 1
+  groundCheckDistance: 4
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!50 &1388279301
 Rigidbody2D:
   serializedVersion: 5
@@ -2888,9 +2893,9 @@ GameObject:
   - component: {fileID: 1487711017}
   - component: {fileID: 1487711016}
   - component: {fileID: 1487711015}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3764,7 +3769,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Level 1
+  m_Text: Level 6
 --- !u!222 &1988326176
 CanvasRenderer:
   m_ObjectHideFlags: 0

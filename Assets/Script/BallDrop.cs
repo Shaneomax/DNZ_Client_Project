@@ -34,7 +34,7 @@ public class BallDrop : MonoBehaviour
     private Rigidbody2D rb;
 
     [Header("Drop Settings")]
-    public float dropForce = 5f;
+    [SerializeField]private float dropForce = 5f;
 
     private bool hasDropped = false; 
 
