@@ -397,6 +397,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 195245044}
   m_CullTransparentMesh: 1
+--- !u!1 &330014293 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 570978838721545543, guid: 0eef55020ce2833478703bf75d607eca, type: 3}
+  m_PrefabInstance: {fileID: 4515632655738890231}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &362084003 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1346394557, guid: a086556e3375f6f409e19a8b6b01c323, type: 3}
@@ -836,7 +841,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1361041270}
+      - m_Target: {fileID: 1571208709}
         m_TargetAssemblyTypeName: WaterSpawner, Assembly-CSharp
         m_MethodName: StartSpawning
         m_Mode: 1
@@ -2532,10 +2537,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1361041269}
   - component: {fileID: 1361041268}
-  - component: {fileID: 1361041270}
   - component: {fileID: 1361041272}
   - component: {fileID: 1361041271}
   - component: {fileID: 1361041273}
+  - component: {fileID: 1361041274}
   m_Layer: 0
   m_Name: Bucket
   m_TagString: Untagged
@@ -2617,23 +2622,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1361041270
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1361041266}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4213646baaa7a744cace5e20e66f43b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::WaterSpawner
-  waterDropPrefab: {fileID: 570978838721545543, guid: 0eef55020ce2833478703bf75d607eca, type: 3}
-  spawnPoint: {fileID: 1074961799}
-  spawnRate: 0.05
-  maxDrops: 300
-  isSpawning: 0
 --- !u!61 &1361041271
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2772,6 +2760,23 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 2.028306, y: 9.500937}
   m_EdgeRadius: 0
+--- !u!114 &1361041274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1361041266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d0eb3755a6c250488dea2adbef33a18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WaterCollector
+  targetWaterTag: RedWater
+  requiredDrops: 50
+  OnBucketFilled:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &1361793272
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3422,12 +3427,12 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e21b536daf004a0449ac6dc595efd227, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 2}
+  m_Size: {x: 11.48, y: 13.71}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -3442,7 +3447,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -8.5, y: 18.5, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -3485,8 +3490,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 2}
-    newSize: {x: 1, y: 2}
+    oldSize: {x: 11.48, y: 13.71}
+    newSize: {x: 11.48, y: 13.71}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -3502,14 +3507,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1571208704}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d0eb3755a6c250488dea2adbef33a18, type: 3}
+  m_Script: {fileID: 11500000, guid: 4213646baaa7a744cace5e20e66f43b1, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::WaterCollector
-  targetWaterTag: BlueWater
-  requiredDrops: 50
-  OnBucketFilled:
-    m_PersistentCalls:
-      m_Calls: []
+  m_EditorClassIdentifier: Assembly-CSharp::WaterSpawner
+  waterDropPrefab: {fileID: 330014293}
+  spawnPoint: {fileID: 1074961799}
+  spawnRate: 0.05
+  maxDrops: 100
+  isSpawning: 0
 --- !u!1 &1600496513
 GameObject:
   m_ObjectHideFlags: 0
@@ -4616,6 +4621,10 @@ PrefabInstance:
     - target: {fileID: 570978838721545543, guid: 0eef55020ce2833478703bf75d607eca, type: 3}
       propertyPath: m_Name
       value: WaterDrop
+      objectReference: {fileID: 0}
+    - target: {fileID: 570978838721545543, guid: 0eef55020ce2833478703bf75d607eca, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7205045550662869654, guid: 0eef55020ce2833478703bf75d607eca, type: 3}
       propertyPath: m_LocalPosition.x
