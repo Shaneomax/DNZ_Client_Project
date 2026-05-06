@@ -8,6 +8,7 @@ TagManager:
   - Ball
   - Ground
   - BlueWater
+  - RedWater
   layers:
   - Default
   - TransparentFX

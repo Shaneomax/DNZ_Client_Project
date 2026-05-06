@@ -5,7 +5,7 @@ public class WaterCollector : MonoBehaviour
 {
     [Header("Collection Settings")]
     [Tooltip("Tag of the water drop allowed in this bucket (e.g., 'BlueWater' or 'RedWater')")]
-    public string targetWaterTag = "Water";
+    public string targetWaterTag = "BlueWater";
     
     [Tooltip("How many drops are needed to fill the bucket and win")]
     public int requiredDrops = 50;
@@ -43,5 +43,11 @@ public class WaterCollector : MonoBehaviour
             // Destroy(collision.gameObject);
             // Debug.Log("Wrong water color!");
         }
+    }
+
+    // Add this inside WaterCollector.cs
+    public bool GetIsFilled()
+    {
+        return isFilled;
     }
 }

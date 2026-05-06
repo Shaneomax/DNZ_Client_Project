@@ -14,7 +14,7 @@ public class WinScript : MonoBehaviour
     [Range(0f, 1f)]
     [SerializeField] private float slowDownFactor = 0.1f;
 
-    private void OnTriggerEnter2D(Collider2D other)
+    public void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Pickup"))
         {
@@ -34,6 +34,24 @@ public class WinScript : MonoBehaviour
         }
     }
 
+    public void TriggerWin()
+    {
+        if (winText != null)
+        {
+            winText.text = "Congratulations You Win";
+        }
+        
+        // Slow down the object this script is attached to
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        if (rb != null)
+        {
+            rb.linearVelocity *= slowDownFactor;
+            rb.angularVelocity *= slowDownFactor;
+        }
+
+        StartCoroutine(LoadLevelAfterDelay());
+    }
+
     private IEnumerator LoadLevelAfterDelay()
     {
         yield return new WaitForSeconds(5f);
@@ -46,4 +64,7 @@ public class WinScript : MonoBehaviour
             SceneManager.LoadScene(nextSceneIndex);
         }
     }
+
+    // Add this inside your WinScript class
+    
 }
