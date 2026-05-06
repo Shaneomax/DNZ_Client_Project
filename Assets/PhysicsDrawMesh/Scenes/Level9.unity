@@ -1028,7 +1028,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9128005060179951180, guid: 5bbc063a5981e274ea66be71b4568246, type: 3}
   m_PrefabInstance: {fileID: 4705634882449572054}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 829328008}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b997ff6b2f813964a9f21a1156ba05ca, type: 3}
@@ -1258,17 +1258,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &789672443 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3930514980293971646, guid: a32eeedff45a87a4a87fb5ba895e3f96, type: 3}
-  m_PrefabInstance: {fileID: 1361793272}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 812ec2d2bdd0d7b468859061e7f2811c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::WinScript
 --- !u!1 &813081839
 GameObject:
   m_ObjectHideFlags: 0
@@ -1535,6 +1524,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 814602315}
   m_CullTransparentMesh: 1
+--- !u!1 &829328008 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6907290860302318503, guid: 5bbc063a5981e274ea66be71b4568246, type: 3}
+  m_PrefabInstance: {fileID: 4705634882449572054}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &829328009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 829328008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b811d8d4911cb404795a9b456fad3f67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  winText: {fileID: 195245046}
+  allBuckets:
+  - {fileID: 1553413511}
 --- !u!1 &895042515
 GameObject:
   m_ObjectHideFlags: 0
@@ -3084,6 +3093,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1553413511 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3568168768412984785, guid: c8a56046ba5f27646aa85801c6acd0a8, type: 3}
+  m_PrefabInstance: {fileID: 2735762748165943232}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d0eb3755a6c250488dea2adbef33a18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WaterCollector
 --- !u!114 &1571208709 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 55803361213045590, guid: 11eb31d5117ea9642a71229d8de086dc, type: 3}
@@ -4187,7 +4207,15 @@ PrefabInstance:
     - target: {fileID: 3568168768412984785, guid: c8a56046ba5f27646aa85801c6acd0a8, type: 3}
       propertyPath: OnBucketFilled.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 789672443}
+      objectReference: {fileID: 829328009}
+    - target: {fileID: 3568168768412984785, guid: c8a56046ba5f27646aa85801c6acd0a8, type: 3}
+      propertyPath: OnBucketFilled.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CheckWinCondition
+      objectReference: {fileID: 0}
+    - target: {fileID: 3568168768412984785, guid: c8a56046ba5f27646aa85801c6acd0a8, type: 3}
+      propertyPath: OnBucketFilled.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 6425671334505653634, guid: c8a56046ba5f27646aa85801c6acd0a8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 9.66
@@ -4527,7 +4555,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6907290860302318503, guid: 5bbc063a5981e274ea66be71b4568246, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 829328009}
   m_SourcePrefab: {fileID: 100100000, guid: 5bbc063a5981e274ea66be71b4568246, type: 3}
 --- !u!1001 &6935666207187709536
 PrefabInstance:

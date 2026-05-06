@@ -69,10 +69,13 @@ public class GameManager : MonoBehaviour
 
         yield return new WaitForSeconds(5f);
 
-        int nextScene = SceneManager.GetActiveScene().buildIndex + 1;
-        if (nextScene < SceneManager.sceneCountInBuildSettings)
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+
+        int nextSceneIndex = currentSceneIndex + 1;
+        if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
         {
-            SceneManager.LoadScene(nextScene);
+            SceneManager.LoadScene(nextSceneIndex);
         }
     }
+
 }

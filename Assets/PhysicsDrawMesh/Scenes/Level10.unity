@@ -119,52 +119,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &115119544
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 115119546}
-  - component: {fileID: 115119545}
-  m_Layer: 0
-  m_Name: WinPanel
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &115119545
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 115119544}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 812ec2d2bdd0d7b468859061e7f2811c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::WinScript
-  winText: {fileID: 195245046}
-  slowDownFactor: 0.1
---- !u!4 &115119546
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 115119544}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &120614590
 GameObject:
   m_ObjectHideFlags: 0
@@ -250,7 +204,7 @@ Transform:
   m_GameObject: {fileID: 120614590}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.8, y: 15.4, z: 0}
+  m_LocalPosition: {x: -2.2, y: 15.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1499,9 +1453,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: BluePipe
       objectReference: {fileID: 0}
+    - target: {fileID: 2341435676236710436, guid: 58b72592733e09a47afc61c4b70c2592, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7596855217498215889, guid: 58b72592733e09a47afc61c4b70c2592, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10.62194
+      value: -2.2
       objectReference: {fileID: 0}
     - target: {fileID: 7596855217498215889, guid: 58b72592733e09a47afc61c4b70c2592, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2084,17 +2042,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 913914714}
   m_CullTransparentMesh: 1
---- !u!114 &949109026 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3568168768412984785, guid: 69d8d4afaa818ec4794894cdb67e3212, type: 3}
-  m_PrefabInstance: {fileID: 1634662682}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d0eb3755a6c250488dea2adbef33a18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::WaterCollector
 --- !u!1 &1130335142
 GameObject:
   m_ObjectHideFlags: 0
@@ -3620,14 +3567,18 @@ PrefabInstance:
     - target: {fileID: 3568168768412984785, guid: 69d8d4afaa818ec4794894cdb67e3212, type: 3}
       propertyPath: OnBucketFilled.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 115119545}
+      objectReference: {fileID: 1925691475}
     - target: {fileID: 3568168768412984785, guid: 69d8d4afaa818ec4794894cdb67e3212, type: 3}
       propertyPath: OnBucketFilled.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: TriggerWin
+      value: CheckWinCondition
+      objectReference: {fileID: 0}
+    - target: {fileID: 3568168768412984785, guid: 69d8d4afaa818ec4794894cdb67e3212, type: 3}
+      propertyPath: OnBucketFilled.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 6425671334505653634, guid: 69d8d4afaa818ec4794894cdb67e3212, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10.62194
+      value: -20
       objectReference: {fileID: 0}
     - target: {fileID: 6425671334505653634, guid: 69d8d4afaa818ec4794894cdb67e3212, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4207,6 +4158,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1910442971 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3568168768412984785, guid: 69d8d4afaa818ec4794894cdb67e3212, type: 3}
+  m_PrefabInstance: {fileID: 1634662682}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d0eb3755a6c250488dea2adbef33a18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WaterCollector
 --- !u!1 &1925691474 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6907290860302318503, guid: 5bbc063a5981e274ea66be71b4568246, type: 3}
@@ -4226,8 +4188,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   winText: {fileID: 195245046}
   allBuckets:
-  - {fileID: 2116661609}
-  - {fileID: 949109026}
+  - {fileID: 1910442971}
 --- !u!1 &1988326173
 GameObject:
   m_ObjectHideFlags: 0
@@ -4548,17 +4509,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 362084010}
   m_SourcePrefab: {fileID: 100100000, guid: a086556e3375f6f409e19a8b6b01c323, type: 3}
---- !u!114 &2116661609 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3568168768412984785, guid: c8a56046ba5f27646aa85801c6acd0a8, type: 3}
-  m_PrefabInstance: {fileID: 2735762748165943232}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d0eb3755a6c250488dea2adbef33a18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::WaterCollector
 --- !u!1001 &2735762748165943232
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4570,14 +4520,18 @@ PrefabInstance:
     - target: {fileID: 3568168768412984785, guid: c8a56046ba5f27646aa85801c6acd0a8, type: 3}
       propertyPath: OnBucketFilled.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 115119545}
+      objectReference: {fileID: 1925691475}
     - target: {fileID: 3568168768412984785, guid: c8a56046ba5f27646aa85801c6acd0a8, type: 3}
       propertyPath: OnBucketFilled.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: TriggerWin
+      value: CheckWinCondition
+      objectReference: {fileID: 0}
+    - target: {fileID: 3568168768412984785, guid: c8a56046ba5f27646aa85801c6acd0a8, type: 3}
+      propertyPath: OnBucketFilled.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 6425671334505653634, guid: c8a56046ba5f27646aa85801c6acd0a8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.9
+      value: 8.3
       objectReference: {fileID: 0}
     - target: {fileID: 6425671334505653634, guid: c8a56046ba5f27646aa85801c6acd0a8, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4639,6 +4593,10 @@ PrefabInstance:
     - target: {fileID: 2341435676236710436, guid: 11eb31d5117ea9642a71229d8de086dc, type: 3}
       propertyPath: m_Name
       value: RedPipe
+      objectReference: {fileID: 0}
+    - target: {fileID: 2341435676236710436, guid: 11eb31d5117ea9642a71229d8de086dc, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7596855217498215889, guid: 11eb31d5117ea9642a71229d8de086dc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5030,7 +4988,6 @@ SceneRoots:
   - {fileID: 2043284255}
   - {fileID: 778912019}
   - {fileID: 767591923}
-  - {fileID: 115119546}
   - {fileID: 1361793272}
   - {fileID: 6935666207187709536}
   - {fileID: 1157031057}
