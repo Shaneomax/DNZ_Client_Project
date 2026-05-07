@@ -35,7 +35,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/PhysicsDrawMesh/Scenes/Level9.unity
     guid: b8d9d848e8d048b499d5e81a4291d3fc
-  - enabled: 1
+  - enabled: 0
     path: Assets/PhysicsDrawMesh/Scenes/Level10.unity
     guid: d5dfc3e4d0b6d284890c4e967a800e2f
   m_configObjects:
