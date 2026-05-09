@@ -2383,7 +2383,7 @@ Transform:
   m_GameObject: {fileID: 1211928028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.31, y: -9.1, z: 0}
+  m_LocalPosition: {x: 7.31, y: -10.31, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3909,7 +3909,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3568168768412984785, guid: c8a56046ba5f27646aa85801c6acd0a8, type: 3}
       propertyPath: requiredDrops
-      value: 50
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 3568168768412984785, guid: c8a56046ba5f27646aa85801c6acd0a8, type: 3}
       propertyPath: OnBucketFilled.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -3994,7 +3994,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 55803361213045590, guid: 11eb31d5117ea9642a71229d8de086dc, type: 3}
       propertyPath: maxDrops
-      value: 150
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 55803361213045590, guid: 11eb31d5117ea9642a71229d8de086dc, type: 3}
       propertyPath: spawnPoint

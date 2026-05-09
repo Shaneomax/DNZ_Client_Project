@@ -10,7 +10,7 @@ public class WaterSpawner : MonoBehaviour
 
     [Header("State")]
     public bool isSpawning = false;
-    private bool stoppedByRock = false; // New flag to prevent respawning after hitting a rock
+    private bool stoppedByRock = false; 
 
     private float nextSpawnTime;
     private int dropsSpawned = 0;
