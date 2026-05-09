@@ -14,7 +14,7 @@ public class WaterCollector : MonoBehaviour
     private bool isFilled = false;
     private Rigidbody2D rb;
 
-    void Aw()
+    void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         if (rb == null)

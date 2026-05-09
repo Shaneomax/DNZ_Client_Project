@@ -3,16 +3,9 @@ using UnityEngine;
 public class WaterSpawner : MonoBehaviour
 {
     [Header("Spawner Settings")]
-    [Tooltip("The water droplet prefab containing a Rigidbody2D and CircleCollider2D")]
     public GameObject waterDropPrefab;
-    
-    [Tooltip("Where the water drops will spawn from")]
     public Transform spawnPoint;
-    
-    [Tooltip("Time in seconds between each spawned drop")]
     public float spawnRate = 0.05f;
-    
-    [Tooltip("Total amount of water to spawn before stopping")]
     public int maxDrops = 100;
 
     [Header("State")]
@@ -23,7 +16,11 @@ public class WaterSpawner : MonoBehaviour
 
     void Update()
     {
-        if (isSpawning && dropsSpawned < maxDrops)
+        // Determine if we are in unlimited mode
+        bool isUnlimited = GameManager.Instance != null && GameManager.Instance.unlimitedWater;
+
+        // Condition: Spawn if active AND (we haven't hit the limit OR we are in unlimited mode)
+        if (isSpawning && (isUnlimited || dropsSpawned < maxDrops))
         {
             if (Time.time >= nextSpawnTime)
             {
@@ -31,34 +28,33 @@ public class WaterSpawner : MonoBehaviour
                 nextSpawnTime = Time.time + spawnRate;
             }
         }
-        else if (dropsSpawned >= maxDrops)
+        // Only auto-stop if NOT in unlimited mode
+        else if (!isUnlimited && dropsSpawned >= maxDrops)
         {
-            isSpawning = false; // Auto-stop when empty
+            isSpawning = false;
         }
     }
 
-    /// <summary>
-    /// Call this via UI Button or Level Manager to open the pipe.
-    /// </summary>
     public void StartSpawning()
     {
         isSpawning = true;
         nextSpawnTime = Time.time;
-        dropsSpawned = 0; // Reset if you want to replay
+        dropsSpawned = 0; 
     }
 
     private void SpawnDrop()
     {
-        // Create the drop
+        if (waterDropPrefab == null || spawnPoint == null) return;
+
         GameObject drop = Instantiate(waterDropPrefab, spawnPoint.position, Quaternion.identity);
         
-        // Optional: Randomize the spawn position slightly so they don't form a perfect straight line
         float randomX = Random.Range(-0.1f, 0.1f);
         drop.transform.position += new Vector3(randomX, 0, 0);
 
-        // Group them under this object to keep the hierarchy clean
         drop.transform.SetParent(this.transform);
         
+        // We still count drops just in case you want to see the number in the inspector, 
+        // but it won't stop the spawning in unlimited mode.
         dropsSpawned++;
     }
 }
