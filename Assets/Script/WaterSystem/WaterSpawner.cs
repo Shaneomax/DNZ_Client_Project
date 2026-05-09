@@ -55,9 +55,8 @@ public class WaterSpawner : MonoBehaviour
         stoppedByRock = true; 
 
         // Start the timed delay to hide particles
-        StartCoroutine(DisableParticlesAfterDelay(rock, 2.5f)); // 2.5 seconds delay
+        StartCoroutine(DisableParticlesAfterDelay(rock, 3.5f));
 
-        Debug.Log("Spawner stopped. Particles will vanish in 2.5 seconds.");
     }
 
     private System.Collections.IEnumerator DisableParticlesAfterDelay(GameObject rock, float delay)
@@ -67,13 +66,8 @@ public class WaterSpawner : MonoBehaviour
 
         if (ps != null)
         {
-            // First, stop emitting new particles so it looks like it's dying out
             ps.Stop();
-
-            // Wait for the specified time
             yield return new WaitForSeconds(delay);
-
-            // Finally, turn the object off completely
             ps.gameObject.SetActive(false);
         }
     }

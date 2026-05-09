@@ -22,7 +22,6 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
-        // Setup Singleton
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
     }
@@ -54,7 +53,6 @@ public class GameManager : MonoBehaviour
         filledBucketsCount = 0;
         foreach (WaterCollector bucket in allBuckets)
         {
-            // Assuming GetIsFilled() is a public method in your WaterCollector script
             if (bucket.GetIsFilled()) 
             {
                 filledBucketsCount++;
