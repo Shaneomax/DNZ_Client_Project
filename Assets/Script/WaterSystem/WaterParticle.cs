@@ -10,9 +10,15 @@ public class WaterParticle : MonoBehaviour
         myCollider = GetComponent<Collider2D>();
     }
 
-    // This handles the drop when it is still a Trigger (falling through air/water)
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        // --- NEW: Rock Interaction ---
+        if (collision.CompareTag("Rock"))
+        {
+            HandleRockCollision(collision.gameObject);
+            return;
+        }
+
         // 1. If it hits the ground while in trigger mode, destroy it
         if (collision.CompareTag("Ground"))
         {
@@ -30,17 +36,21 @@ public class WaterParticle : MonoBehaviour
         myCollider.isTrigger = false;
     }
 
-    // This handles the drop after it has become solid (isTrigger = false)
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        // If a solid water drop touches the ground, destroy it
+        // --- NEW: Rock Interaction (if already solid) ---
+        if (collision.gameObject.CompareTag("Rock"))
+        {
+            HandleRockCollision(collision.gameObject);
+            return;
+        }
+
         if (collision.gameObject.CompareTag("Ground"))
         {
             Destroy(gameObject);
         }
     }
 
-    // As requested earlier: if it stops touching something solid, it becomes a trigger again
     private void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("RedWater") || collision.gameObject.CompareTag("BlueWater")) 
@@ -49,5 +59,19 @@ public class WaterParticle : MonoBehaviour
         }
 
         myCollider.isTrigger = true;
+    }
+
+    // Helper method to handle the logic you requested
+    private void HandleRockCollision(GameObject rock)
+    {
+        // 1. Tell the Spawner to stop (it looks at the parent because the spawner owns the drops)
+        WaterSpawner spawner = GetComponentInParent<WaterSpawner>();
+        if (spawner != null)
+        {
+            spawner.StopSpawner(rock);
+        }
+
+        // 2. Destroy the drop so it doesn't just sit on the rock
+        Destroy(gameObject);
     }
 }
