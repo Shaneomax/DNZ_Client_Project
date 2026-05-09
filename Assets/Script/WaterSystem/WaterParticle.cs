@@ -62,7 +62,7 @@ public class WaterParticle : MonoBehaviour
     }
 
     // Helper method to handle the logic you requested
-    private void HandleRockCollision(GameObject rock)
+    public void HandleRockCollision(GameObject rock)
     {
         // 1. Tell the Spawner to stop (it looks at the parent because the spawner owns the drops)
         WaterSpawner spawner = GetComponentInParent<WaterSpawner>();

@@ -47,26 +47,35 @@ public class WaterSpawner : MonoBehaviour
 
     // Use this if your project is 3D
 
-    // Inside WaterSpawner.cs
-
-// Change StopSpawner to public so drops can call it
     public void StopSpawner(GameObject rock)
     {
-        if (stoppedByRock) return; // Prevent multiple calls
+        if (stoppedByRock) return;
 
         isSpawning = false;
         stoppedByRock = true; 
 
-        // Look for particles in the rock or its children
+        // Start the timed delay to hide particles
+        StartCoroutine(DisableParticlesAfterDelay(rock, 2.5f)); // 2.5 seconds delay
+
+        Debug.Log("Spawner stopped. Particles will vanish in 2.5 seconds.");
+    }
+
+    private System.Collections.IEnumerator DisableParticlesAfterDelay(GameObject rock, float delay)
+    {
+        // Find the Particle System
         ParticleSystem ps = rock.GetComponentInChildren<ParticleSystem>();
+
         if (ps != null)
         {
-            ps.Stop(); 
-            // If you want it to vanish immediately:
-            // ps.gameObject.SetActive(false);
-        }
+            // First, stop emitting new particles so it looks like it's dying out
+            ps.Stop();
 
-        Debug.Log("A drop hit a rock! Stopping spawner.");
+            // Wait for the specified time
+            yield return new WaitForSeconds(delay);
+
+            // Finally, turn the object off completely
+            ps.gameObject.SetActive(false);
+        }
     }
 
     public void StartSpawning()
