@@ -2794,10 +2794,10 @@ PrefabInstance:
     - target: {fileID: 21251924, guid: 1c5fea894b39b534ca9499ead78fb437, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: ce10bacf5483af74a8ccd0712efd46e8, type: 3}
+      objectReference: {fileID: -712631045867808456, guid: b670ab75dde984907b8570040daa08c5, type: 3}
     - target: {fileID: 58207158184040794, guid: 1c5fea894b39b534ca9499ead78fb437, type: 3}
       propertyPath: m_Radius
-      value: 0.15
+      value: 0.32
       objectReference: {fileID: 0}
     - target: {fileID: 96420874952216904, guid: 1c5fea894b39b534ca9499ead78fb437, type: 3}
       propertyPath: m_Enabled
@@ -4707,7 +4707,7 @@ TrailRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Time: 8
+  m_Time: 2
   m_PreviewTimeScale: 1
   m_Parameters:
     serializedVersion: 3
@@ -4725,8 +4725,8 @@ TrailRenderer:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.28786552
-        value: 0.53140575
+        time: 0.9108819
+        value: 0.14348155
         inSlope: -2.7728922
         outSlope: -2.7728922
         tangentMode: 0
