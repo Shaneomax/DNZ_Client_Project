@@ -2,7 +2,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 using System.Collections;
-using Water2D; // Added to match your Spawner namespace
+using Water2D; 
 
 public class GameManager : MonoBehaviour
 {
@@ -63,18 +63,10 @@ public class GameManager : MonoBehaviour
         levelComplete = true;
         if (winText != null) winText.text = "Congratulations You Win!";
         
-        // --- REALISTIC STOP LOGIC ---
         if (Water2D_Spawner.instance != null)
         {
-            // Stop the spawning loop so no NEW particles are created
             Water2D_Spawner.instance.Dynamic = false;
-            
-            // Do NOT call Restore() here. 
-            // Restore() is what deletes the water instantly.
-            // By just setting Dynamic to false, the existing water 
-            // will finish its LifeTime naturally.
         }
-        // ----------------------------
 
         yield return new WaitForSeconds(5f);
 
