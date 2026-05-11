@@ -349,17 +349,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 140222404}
   m_CullTransparentMesh: 1
---- !u!114 &165067141 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6974693256952741992, guid: a32eeedff45a87a4a87fb5ba895e3f96, type: 3}
-  m_PrefabInstance: {fileID: 1361793272}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa782ac98f566c347a1c7710bf6a3203, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BallDrop
 --- !u!1 &195245044
 GameObject:
   m_ObjectHideFlags: 0
@@ -849,8 +838,8 @@ Transform:
   m_GameObject: {fileID: 472977692}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.1245, y: 1.868, z: 71.83}
-  m_LocalScale: {x: 3.7631366, y: 3.7339613, z: 3}
+  m_LocalPosition: {x: -0.3036, y: 1.1286, z: 71.83}
+  m_LocalScale: {x: 7.061393, y: 5.7354183, z: 3}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -1006,7 +995,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 486282, guid: 1f9a47a695f72184f96ddc8d0b602c32, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 14.4
+      value: 14.87
       objectReference: {fileID: 0}
     - target: {fileID: 486282, guid: 1f9a47a695f72184f96ddc8d0b602c32, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1040,13 +1029,61 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1995922805759879531, guid: 1f9a47a695f72184f96ddc8d0b602c32, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1995922806186536599, guid: 1f9a47a695f72184f96ddc8d0b602c32, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1995922806268188172, guid: 1f9a47a695f72184f96ddc8d0b602c32, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1995922806309330422, guid: 1f9a47a695f72184f96ddc8d0b602c32, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1995922806309330422, guid: 1f9a47a695f72184f96ddc8d0b602c32, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1995922806309330424, guid: 1f9a47a695f72184f96ddc8d0b602c32, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1995922806808618548, guid: 1f9a47a695f72184f96ddc8d0b602c32, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1995922806808618548, guid: 1f9a47a695f72184f96ddc8d0b602c32, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.17377883
+      objectReference: {fileID: 0}
+    - target: {fileID: 1995922806808618548, guid: 1f9a47a695f72184f96ddc8d0b602c32, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.3578
+      objectReference: {fileID: 0}
+    - target: {fileID: 1995922806808618548, guid: 1f9a47a695f72184f96ddc8d0b602c32, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1995922806808618550, guid: 1f9a47a695f72184f96ddc8d0b602c32, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9b7bc3f0139858545a622230a4e852e4, type: 3}
+    - target: {fileID: 1995922806808618550, guid: 1f9a47a695f72184f96ddc8d0b602c32, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1995922807381703569, guid: 1f9a47a695f72184f96ddc8d0b602c32, type: 3}
       propertyPath: size
-      value: 0.507
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1995922807381703569, guid: 1f9a47a695f72184f96ddc8d0b602c32, type: 3}
       propertyPath: LifeTime
-      value: 30
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1995922807381703569, guid: 1f9a47a695f72184f96ddc8d0b602c32, type: 3}
       propertyPath: WaterDropsObjects.Array.size
@@ -1143,19 +1180,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 611471053}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 165067141}
-        m_TargetAssemblyTypeName: BallDrop, Assembly-CSharp
-        m_MethodName: DropBall
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &611471053
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2733,7 +2758,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 199430, guid: 1c5fea894b39b534ca9499ead78fb437, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 486282, guid: 1c5fea894b39b534ca9499ead78fb437, type: 3}
       propertyPath: m_LocalScale.x
