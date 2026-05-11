@@ -5,18 +5,22 @@ public class RockCollisionHandler : MonoBehaviour
 {
     [Header("Settings")]
     public string waterTag = "BlueWater";
-    public string ballTag = "Ball"; // Tag for your soccer ball
+    public string ballTag = "Ball"; 
     public GameObject rockParticleEffect;
+
+    [Header("UI Reference")]
+    [Tooltip("Drag your Game Over Panel from the Canvas here")]
+    public GameObject gameOverPanel;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // 1. If WATER hits the rock, turn off the fire and stop the spawner
+        // 1. If WATER hits: Turn off fire and stop spawner
         if (collision.CompareTag(waterTag))
         {
             HandleImpact();
         }
 
-        // 2. If the BALL hits the rock
+        // 2. If BALL hits: Check if fire is on, then destroy and Game Over
         if (collision.CompareTag(ballTag))
         {
             CheckBallCollision(collision.gameObject);
@@ -27,9 +31,7 @@ public class RockCollisionHandler : MonoBehaviour
     {
         if (rockParticleEffect != null)
         {
-            // Get all particle systems (including children like smoke/sparks)
             ParticleSystem[] allPS = rockParticleEffect.GetComponentsInChildren<ParticleSystem>();
-            
             foreach (ParticleSystem ps in allPS)
             {
                 var emission = ps.emission; 
@@ -50,15 +52,22 @@ public class RockCollisionHandler : MonoBehaviour
         {
             ParticleSystem ps = rockParticleEffect.GetComponentInChildren<ParticleSystem>();
             
-            // If the particle system is found AND it is still emitting...
+            // Condition: Ball hits while fire is still emitting
             if (ps != null && ps.emission.enabled == true)
             {
-                Debug.Log("Ball hit the fire! Destroying ball.");
+                Debug.Log("Ball hit fire! Game Over.");
+                
+                // Show the UI Panel
+                if (gameOverPanel != null)
+                {
+                    gameOverPanel.SetActive(true);
+                }
+
+                // Destroy the ball
                 Destroy(ball);
-            }
-            else
-            {
-                Debug.Log("Ball hit the rock, but the fire is out. Ball is safe.");
+                
+                // Optional: Stop time so the game pauses
+                // Time.timeScale = 0f; 
             }
         }
     }
