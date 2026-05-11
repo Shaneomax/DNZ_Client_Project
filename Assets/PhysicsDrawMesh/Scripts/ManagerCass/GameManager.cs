@@ -63,11 +63,20 @@ public class GameManager : MonoBehaviour
         levelComplete = true;
         if (winText != null) winText.text = "Congratulations You Win!";
         
-        // Optional: Stop spawning water when you win
+        // --- REALISTIC STOP LOGIC ---
         if (Water2D_Spawner.instance != null)
-            Water2D_Spawner.instance.Restore();
+        {
+            // Stop the spawning loop so no NEW particles are created
+            Water2D_Spawner.instance.Dynamic = false;
+            
+            // Do NOT call Restore() here. 
+            // Restore() is what deletes the water instantly.
+            // By just setting Dynamic to false, the existing water 
+            // will finish its LifeTime naturally.
+        }
+        // ----------------------------
 
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(5f);
 
         int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
         if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)

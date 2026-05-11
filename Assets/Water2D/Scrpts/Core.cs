@@ -12,7 +12,7 @@ public class Core : MonoBehaviour
     void Start()
     {
 		Water2D_Spawner.instance.Dynamic = true;
-		Water2D_Spawner.instance.Spawn ();
+		//Water2D_Spawner.instance.Spawn ();
     }
 
     // Update is called once per frame

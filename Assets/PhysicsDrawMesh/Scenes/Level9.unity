@@ -137,7 +137,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3568168768412984785, guid: 69d8d4afaa818ec4794894cdb67e3212, type: 3}
       propertyPath: requiredDrops
-      value: 60
+      value: 170
       objectReference: {fileID: 0}
     - target: {fileID: 3568168768412984785, guid: 69d8d4afaa818ec4794894cdb67e3212, type: 3}
       propertyPath: targetWaterTag
@@ -214,7 +214,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8908110744064149985, guid: 69d8d4afaa818ec4794894cdb67e3212, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1496554452}
   m_SourcePrefab: {fileID: 100100000, guid: 69d8d4afaa818ec4794894cdb67e3212, type: 3}
 --- !u!1 &140222404
 GameObject:
@@ -1237,7 +1240,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 611471053}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 982323515}
+        m_TargetAssemblyTypeName: Water2D.Water2D_Spawner, Assembly-CSharp
+        m_MethodName: Spawn
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 500
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &611471053
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2266,6 +2281,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 913914714}
   m_CullTransparentMesh: 1
+--- !u!114 &982323515 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1995922807381703569, guid: 1f9a47a695f72184f96ddc8d0b602c32, type: 3}
+  m_PrefabInstance: {fileID: 521482612}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a61b2f131f7d2b84d8fe6dd14891c26b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &990048439
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2288,11 +2314,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6291113639617168089, guid: f532f3f2cef4b43499bb23c721883b17, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.53231
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6291113639617168089, guid: f532f3f2cef4b43499bb23c721883b17, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -10.16162
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6291113639617168089, guid: f532f3f2cef4b43499bb23c721883b17, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2768,15 +2794,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 486282, guid: 1c5fea894b39b534ca9499ead78fb437, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.45000002
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 486282, guid: 1c5fea894b39b534ca9499ead78fb437, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.45000002
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 486282, guid: 1c5fea894b39b534ca9499ead78fb437, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.0000001
+      value: 222.22223
       objectReference: {fileID: 0}
     - target: {fileID: 486282, guid: 1c5fea894b39b534ca9499ead78fb437, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3321,6 +3347,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1496554447 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8908110744064149985, guid: 69d8d4afaa818ec4794894cdb67e3212, type: 3}
+  m_PrefabInstance: {fileID: 1708640}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1496554448 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3568168768412984785, guid: 69d8d4afaa818ec4794894cdb67e3212, type: 3}
+  m_PrefabInstance: {fileID: 1708640}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1496554447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d0eb3755a6c250488dea2adbef33a18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WaterCollector
+--- !u!114 &1496554452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1496554447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acb80ff168fbdf649959944ebf4eb693, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BucketWaterPreserver
+  waterTag: Metaball_liquid
+  infiniteLifeTime: 999999
+  dampVelocity: 1
 --- !u!1 &1600496513
 GameObject:
   m_ObjectHideFlags: 0
@@ -4143,7 +4200,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   winText: {fileID: 195245046}
   unlimitedWater: 0
-  allBuckets: []
+  allBuckets:
+  - {fileID: 1496554448}
 --- !u!1 &1988326173
 GameObject:
   m_ObjectHideFlags: 0
@@ -4214,7 +4272,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Level 11
+  m_Text: Level 9
 --- !u!222 &1988326176
 CanvasRenderer:
   m_ObjectHideFlags: 0
