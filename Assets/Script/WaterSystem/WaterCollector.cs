@@ -4,7 +4,7 @@ using UnityEngine.Events;
 public class WaterCollector : MonoBehaviour
 {
     [Header("Collection Settings")]
-    public string targetWaterTag = "BlueWater";
+    public string targetWaterTag = "BlueWater"; 
     public int requiredDrops = 50;
 
     [Header("Events")]
@@ -17,39 +17,46 @@ public class WaterCollector : MonoBehaviour
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        if (rb == null)
-        {
-            Debug.LogError($"WaterCollector on {gameObject.name} is missing a Rigidbody2D component!");
-        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        // Optimization: If already filled, don't process more physics triggers
         if (isFilled) return;
 
         if (collision.gameObject.CompareTag(targetWaterTag))
         {
-            // --- NEW LOGIC: Make the object static ---
-            if (rb != null)
-            {
-                //rb.bodyType = RigidbodyType2D.Static; 
-                rb.simulated = false; 
-            }
-            // -----------------------------------------
-
             currentCollected++;
+
+            // Optional: You could 'deactivate' the water drop here so it doesn't 
+            // bounce out of the bucket and stays inside.
+            // collision.gameObject.GetComponent<MetaballParticleClass>().Active = false;
 
             if (currentCollected >= requiredDrops)
             {
-                isFilled = true;
-                if (rb != null)
-                {
-                    //rb.bodyType = RigidbodyType2D.Static; 
-                    rb.simulated = false; 
-                }
-                Debug.Log($"{gameObject.name} filled with {targetWaterTag}!");
-                OnBucketFilled?.Invoke();
+                CompleteBucket();
             }
+        }
+    }
+
+    private void CompleteBucket()
+    {
+        isFilled = true;
+        
+        // Freeze the bucket now that it's full
+        if (rb != null)
+        {
+            rb.linearVelocity = Vector2.zero; // Stop current movement
+            rb.simulated = false; // Stop physics interactions
+        }
+
+        Debug.Log($"{gameObject.name} filled!");
+        OnBucketFilled?.Invoke();
+
+        // Tell the GameManager to check if this was the last bucket needed
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.CheckWinCondition();
         }
     }
 
