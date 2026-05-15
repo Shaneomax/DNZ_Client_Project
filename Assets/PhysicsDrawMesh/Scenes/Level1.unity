@@ -2484,6 +2484,22 @@ PrefabInstance:
       propertyPath: winText
       value: 
       objectReference: {fileID: 195245046}
+    - target: {fileID: 4739643201430109614, guid: a32eeedff45a87a4a87fb5ba895e3f96, type: 3}
+      propertyPath: m_Mass
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4739643201430109614, guid: a32eeedff45a87a4a87fb5ba895e3f96, type: 3}
+      propertyPath: m_GravityScale
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4739643201430109614, guid: a32eeedff45a87a4a87fb5ba895e3f96, type: 3}
+      propertyPath: m_LinearDamping
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4739643201430109614, guid: a32eeedff45a87a4a87fb5ba895e3f96, type: 3}
+      propertyPath: m_AngularDamping
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 6097235920552741724, guid: a32eeedff45a87a4a87fb5ba895e3f96, type: 3}
       propertyPath: m_LocalPosition.x
       value: -21.69
@@ -2838,6 +2854,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerJump
   jumpForce: 10
+  alwaysJump: 0
+  groundCheckDistance: 0.1
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  rb: {fileID: 0}
 --- !u!50 &1388279301
 Rigidbody2D:
   serializedVersion: 5

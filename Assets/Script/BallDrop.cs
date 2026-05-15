@@ -32,25 +32,29 @@ using UnityEngine;
 public class BallDrop : MonoBehaviour
 {
     private Rigidbody2D rb;
+    private bool hasDropped = false; 
 
     [Header("Drop Settings")]
-    [SerializeField]private float dropForce = 5f;
-
-    private bool hasDropped = false; 
+    [SerializeField] private float dropImpulse = 2f; // Slight downward push
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        
+        // Ensure the ball starts stationary and non-physical
         rb.simulated = false;
     }
 
     public void DropBall()
     {
         if (hasDropped) return;
-
         hasDropped = true;
 
+        // Wake up the physics engine
         rb.simulated = true;
-        rb.AddForce(Vector2.down * dropForce, ForceMode2D.Impulse);
+
+        // Optional: A tiny bit of force or torque makes the drop look less "robotic"
+        rb.AddForce(Vector2.down * dropImpulse, ForceMode2D.Impulse);
+        rb.AddTorque(Random.Range(-2f, 2f), ForceMode2D.Impulse); 
     }
 }
