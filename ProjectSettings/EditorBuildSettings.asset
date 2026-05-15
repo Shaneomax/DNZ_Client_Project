@@ -24,7 +24,7 @@ EditorBuildSettings:
     path: Assets/PhysicsDrawMesh/Scenes/Level22.unity
     guid: 7dc464ef01a5d4c47b80e9a91bfbc6df
   - enabled: 1
-    path: Assets/PhysicsDrawMesh/Scenes/Level33.unity
+    path: Assets/PhysicsDrawMesh/Scenes/Level5.unity
     guid: d6e2c75ff0e6b8044a986fd9a60ccaf4
   - enabled: 1
     path: Assets/PhysicsDrawMesh/Scenes/Level7.unity
