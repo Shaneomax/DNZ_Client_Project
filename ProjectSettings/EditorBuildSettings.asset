@@ -21,11 +21,11 @@ EditorBuildSettings:
     path: Assets/PhysicsDrawMesh/Scenes/Level4.unity
     guid: 4265bfacd7709a946a0c8c8a19d485e2
   - enabled: 1
-    path: Assets/PhysicsDrawMesh/Scenes/Level22.unity
-    guid: 7dc464ef01a5d4c47b80e9a91bfbc6df
-  - enabled: 1
     path: Assets/PhysicsDrawMesh/Scenes/Level5.unity
     guid: d6e2c75ff0e6b8044a986fd9a60ccaf4
+  - enabled: 1
+    path: Assets/PhysicsDrawMesh/Scenes/Level6.unity
+    guid: 7dc464ef01a5d4c47b80e9a91bfbc6df
   - enabled: 1
     path: Assets/PhysicsDrawMesh/Scenes/Level7.unity
     guid: dfd1b5286d4c3ff428c8bbdcf99479e5
