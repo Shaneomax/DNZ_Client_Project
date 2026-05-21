@@ -10,6 +10,7 @@ TagManager:
   - BlueWater
   - RedWater
   - Rock
+  - Net
   layers:
   - Default
   - TransparentFX

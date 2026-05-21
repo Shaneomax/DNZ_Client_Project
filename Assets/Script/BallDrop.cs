@@ -28,6 +28,7 @@
 //}
 
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BallDrop : MonoBehaviour
 {
@@ -50,11 +51,24 @@ public class BallDrop : MonoBehaviour
         if (hasDropped) return;
         hasDropped = true;
 
-        // Wake up the physics engine
         rb.simulated = true;
 
-        // Optional: A tiny bit of force or torque makes the drop look less "robotic"
         rb.AddForce(Vector2.down * dropImpulse, ForceMode2D.Impulse);
         rb.AddTorque(Random.Range(-2f, 2f), ForceMode2D.Impulse); 
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+
+        if (collision.gameObject.CompareTag("Net"))
+        {
+            RestartLevel();
+        }
+    }
+
+    private void RestartLevel()
+    {
+
+        Scene currentScene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(currentScene.name);
     }
 }

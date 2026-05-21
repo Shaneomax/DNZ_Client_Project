@@ -2854,12 +2854,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerJump
   jumpForce: 14
-  alwaysJump: 1
+  alwaysJump: 0
   groundCheckDistance: 4
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
-  rb: {fileID: 0}
+  rb: {fileID: 1388279301}
 --- !u!50 &1388279301
 Rigidbody2D:
   serializedVersion: 5
