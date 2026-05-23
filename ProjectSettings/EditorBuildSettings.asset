@@ -27,20 +27,23 @@ EditorBuildSettings:
     path: Assets/PhysicsDrawMesh/Scenes/Level6.unity
     guid: 7dc464ef01a5d4c47b80e9a91bfbc6df
   - enabled: 1
-    path: Assets/PhysicsDrawMesh/Scenes/Level9.unity
-    guid: cffa0a2cfd67cf54fb63b47bb69f009a
+    path: Assets/PhysicsDrawMesh/Scenes/Level7.unity
+    guid: b436ea29406936b48ad5588393e1ad95
   - enabled: 1
     path: Assets/PhysicsDrawMesh/Scenes/Level8.unity
     guid: 2e0ab6a87ab8b0b40ac26faa056e7cac
+  - enabled: 1
+    path: Assets/PhysicsDrawMesh/Scenes/Level9.unity
+    guid: cffa0a2cfd67cf54fb63b47bb69f009a
+  - enabled: 1
+    path: Assets/PhysicsDrawMesh/Scenes/Level10.unity
+    guid: 634d58b373b87c941a639b5e4b432b23
   - enabled: 0
     path: Assets/PhysicsDrawMesh/Scenes/Level77.unity
     guid: dfd1b5286d4c3ff428c8bbdcf99479e5
   - enabled: 0
     path: Assets/PhysicsDrawMesh/Scenes/Level29.unity
     guid: e8ad3ffccdb877944bf9c316cfecd63d
-  - enabled: 0
-    path: Assets/PhysicsDrawMesh/Scenes/Level10.unity
-    guid: 634d58b373b87c941a639b5e4b432b23
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
