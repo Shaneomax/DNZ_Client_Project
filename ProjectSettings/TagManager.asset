@@ -5,6 +5,12 @@ TagManager:
   serializedVersion: 3
   tags:
   - Pickup
+  - Ball
+  - Ground
+  - BlueWater
+  - RedWater
+  - Rock
+  - Net
   layers:
   - Default
   - TransparentFX
@@ -12,8 +18,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - Ground
+  - Fluids
   - 
   - 
   - 

@@ -28,29 +28,47 @@
 //}
 
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BallDrop : MonoBehaviour
 {
     private Rigidbody2D rb;
+    private bool hasDropped = false; 
 
     [Header("Drop Settings")]
-    public float dropForce = 5f;
-
-    private bool hasDropped = false; 
+    [SerializeField] private float dropImpulse = 2f; // Slight downward push
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        
+        // Ensure the ball starts stationary and non-physical
         rb.simulated = false;
     }
 
     public void DropBall()
     {
         if (hasDropped) return;
-
         hasDropped = true;
 
         rb.simulated = true;
-        rb.AddForce(Vector2.down * dropForce, ForceMode2D.Impulse);
+
+        rb.AddForce(Vector2.down * dropImpulse, ForceMode2D.Impulse);
+        rb.AddTorque(Random.Range(-2f, 2f), ForceMode2D.Impulse); 
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+
+        if (collision.gameObject.CompareTag("Net"))
+        {
+            RestartLevel();
+        }
+    }
+
+    private void RestartLevel()
+    {
+
+        Scene currentScene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(currentScene.name);
     }
 }
