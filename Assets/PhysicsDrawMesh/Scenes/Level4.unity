@@ -2411,6 +2411,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1263725748}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1315323700 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7945151069541291863, guid: a32eeedff45a87a4a87fb5ba895e3f96, type: 3}
+  m_PrefabInstance: {fileID: 4319975988511978247}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1377635014
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3639,7 +3644,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6097235920552741724, guid: a32eeedff45a87a4a87fb5ba895e3f96, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -14
+      value: -14.01
       objectReference: {fileID: 0}
     - target: {fileID: 6097235920552741724, guid: a32eeedff45a87a4a87fb5ba895e3f96, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3677,6 +3682,10 @@ PrefabInstance:
       propertyPath: dropForce
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 6974693256952741992, guid: a32eeedff45a87a4a87fb5ba895e3f96, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7945151069541291863, guid: a32eeedff45a87a4a87fb5ba895e3f96, type: 3}
       propertyPath: m_Name
       value: Ball
@@ -3684,19 +3693,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7945151069541291863, guid: a32eeedff45a87a4a87fb5ba895e3f96, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4319975988511978249}
   m_SourcePrefab: {fileID: 100100000, guid: a32eeedff45a87a4a87fb5ba895e3f96, type: 3}
 --- !u!114 &4319975988511978248 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6974693256952741992, guid: a32eeedff45a87a4a87fb5ba895e3f96, type: 3}
   m_PrefabInstance: {fileID: 4319975988511978247}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1315323700}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fa782ac98f566c347a1c7710bf6a3203, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BallDrop
+--- !u!114 &4319975988511978249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1315323700}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85bf8a7545fb70a409396cee4c29530c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BallDrop1
+  dropImpulse: 2
 --- !u!1001 &6935666207187709536
 PrefabInstance:
   m_ObjectHideFlags: 0
